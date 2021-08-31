@@ -30,6 +30,17 @@ function random ( min, max ) {
 };
 
 
+//Shuffle cards (Fisher–Yates shuffle)
+function shuffleCards () {
+    for ( let i = cards.length - 1; 0 < i; i-- ) {
+        let randomNum = random( 0, i );//e.g.: If a card is the last of cards[], pick a random index from 0 to i inclusive
+        let temporaryCard = cards[ i ];//e.g.: In the above example, it's "K"
+        cards[ i ] = cards[ randomNum ];//e.g.: Swap "K" with the card at the random index
+        cards[ randomNum ] = temporaryCard;//e.g.: "K" is placed where the randomly selected card were.
+    };
+};
+
+
 //Draw cards image as HTML
 function drawCards () {
     for ( let i = 0; i < cards.length; i++ ) {
@@ -43,17 +54,6 @@ function drawCards () {
         $field.appendChild( element );
     }
 }
-
-
-//Shuffle cards (Fisher–Yates shuffle)
-function shuffleCards () {
-    for ( let i = cards.length - 1; 0 < i; i-- ) {
-        let randomNum = random( 0, i );//e.g.: If a card is the last of cards[], pick a random index from 0 to i inclusive
-        let temporaryCard = cards[ i ];//e.g.: In the above example, it's "K"
-        cards[ i ] = cards[ randomNum ];//e.g.: Swap "K" with the card at the random index
-        cards[ randomNum ] = temporaryCard;//e.g.: "K" is placed where the randomly selected card were.
-    };
-};
 
 
 //Process once a user clicks a card
