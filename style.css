@@ -1,4 +1,9 @@
+#clock {
+    font-size: 30px;
+}
+
 #field {
+    width: 600px;
 }
 
 .card {
