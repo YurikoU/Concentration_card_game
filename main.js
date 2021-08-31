@@ -30,6 +30,21 @@ function random ( min, max ) {
 };
 
 
+//Draw cards image as HTML
+function drawCards () {
+    for ( let i = 0; i < cards.length; i++ ) {
+        let element = document.createElement("div");//Create a new div element
+        
+        element.className = "card";//Add the text node to the newly created div
+        element.innerHTML = "";//Turn down all cards
+        element.index     = i;//Store cards number as "index"
+        element.onclick   = click;//Call the following click() function once a user clicks a card
+        
+        $field.appendChild( element );
+    }
+}
+
+
 //Shuffle cards (Fisher–Yates shuffle)
 function shuffleCards () {
     for ( let i = cards.length - 1; 0 < i; i-- ) {
@@ -39,9 +54,6 @@ function shuffleCards () {
         cards[ randomNum ] = temporaryCard;//e.g.: "K" is placed where the randomly selected card were.
     };
 };
-
-
-
 
 
 //Process once a user clicks a card
@@ -103,19 +115,6 @@ function judge () {
 }
 
 
-//Draw cards image as HTML
-function drawCards () {
-    for ( let i = 0; i < cards.length; i++ ) {
-        let element = document.createElement("div");//Create a new div element
-        
-        element.className = "card";//Add the text node to the newly created div
-        element.innerHTML = "";//Turn down all cards
-        element.index     = i;//Store cards number as "index"
-        element.onclick   = click;//Call the following click() function once a user clicks a card
-        
-        $field.appendChild( element );
-    }
-}
 
 
 shuffleCards();
